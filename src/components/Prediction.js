@@ -246,7 +246,7 @@ function Prediction(props) {
         </Col>
       </Row>
       {distances !== null && (
-        <Row id="graph">{<Graph distances={distances} ratios={ratios} />}</Row>
+        <Row id="graph" className="d-flex justify-content-center">{<Graph distances={distances} ratios={ratios} />}</Row>
       )}
     </div>
   );

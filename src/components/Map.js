@@ -76,45 +76,52 @@ function MapC(props) {
     });
 
     map.on("moveend", async () => {
-      const geojson_data = [];
-      props.warehouses.map((w, i) => {
-        geojson_data.push({
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [w.longitude, w.latitude],
-          },
-          properties: {
-            id: i,
-            name: w.name,
-            description: "warehouse",
-            index: i,
-            warehouse: 1,
-          },
-        });
-      });
-      props.zones.map((z, i) => {
-        geojson_data.push({
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [z.longitude, z.latitude],
-          },
-          properties: {
-            id: props.warehouses.length + i,
-            name: z.name,
-            description: "zone",
-            index: i,
-            warehouse: 0,
-          },
-        });
-      });
+      try {
+        const geojson_data = [];
+        if(props.warehouses !== null && props.zones !== null) {
+          props.warehouses.map((w, i) => {
+            geojson_data.push({
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [w.longitude, w.latitude],
+              },
+              properties: {
+                id: i,
+                name: w.name,
+                description: "warehouse",
+                index: i,
+                warehouse: 1,
+              },
+            });
+          });
+          props.zones.map((z, i) => {
+            geojson_data.push({
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [z.longitude, z.latitude],
+              },
+              properties: {
+                id: props.warehouses.length + i,
+                name: z.name,
+                description: "zone",
+                index: i,
+                warehouse: 0,
+              },
+            });
+          });
+        }
 
-      const results = {
-        type: "FeatureCollection",
-        features: geojson_data,
-      };
-      map.getSource("random-points-data").setData(results);
+        const results = {
+          type: "FeatureCollection",
+          features: geojson_data,
+        };
+        map.getSource("random-points-data").setData(results);
+      }
+      catch {
+        console.log('initializing...')
+      }
     });
 
     map.on("mouseenter", "random-points-layer", (e) => {
