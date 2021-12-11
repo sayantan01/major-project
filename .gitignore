@@ -1,5 +1,6 @@
-server/venv
+venv
 server/__pycache__
+.env
 server/.env
 datasets/code/.env
 client/node_modules
