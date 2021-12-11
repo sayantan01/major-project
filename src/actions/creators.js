@@ -6,11 +6,13 @@ import {
   fetchedLocations,
 } from "./actionUtils";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 export const login = (user) => {
   return async (dispatch) => {
     try {
       dispatch(resetError());
-      const response = await axios.post("api/user/login", user);
+      const response = await axios.post(BACKEND_URL + "/api/user/login", user);
       const { token, email } = response.data;
       return dispatch(loginUser(token, email));
     } catch (err) {
@@ -23,7 +25,7 @@ export const fetchLocations = (token) => {
   return async (dispatch) => {
     try {
       dispatch(resetError());
-      const response = await axios.get("api/fetch", {
+      const response = await axios.get(BACKEND_URL + "/api/fetch", {
         headers: {
           Authorization: "Bearer " + token,
         },

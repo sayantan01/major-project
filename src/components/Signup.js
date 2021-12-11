@@ -6,6 +6,8 @@ import { Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 function Signup(props) {
   const [values, setValues] = useState({
     name: "",
@@ -47,7 +49,7 @@ function Signup(props) {
       password: values.password,
     };
     axios
-      .post("api/user/signup", userObj)
+      .post(BACKEND_URL + "/api/user/signup", userObj)
       .then((res) => {
         console.log("User registered successfully!");
         setSuccessful(true);

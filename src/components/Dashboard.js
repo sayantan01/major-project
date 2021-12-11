@@ -1,15 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Search from "./Search";
 import { fetchLocations } from "../actions/creators";
-import Map from './Map';
+import Map from "./Map";
 
 function Dashboard(props) {
-
   useEffect(() => {
     console.log(props.warehouses);
     if (props.token !== null && props.warehouses === null) {
@@ -34,10 +32,14 @@ function Dashboard(props) {
       </Helmet>
       <h2>Get the predictions here</h2>
       <Row className="my-5">
-          <Search options={warehouses} warehouse = {1} title="search by warehouse" />
+        <Search
+          options={warehouses}
+          warehouse={1}
+          title="search by warehouse"
+        />
       </Row>
       <Row className="my-5">
-          <Search options={zones} warehouse = {0} title="search by zone" />
+        <Search options={zones} warehouse={0} title="search by zone" />
       </Row>
       <Row className="my-5 mx-auto">
         <Map />

@@ -4,7 +4,7 @@ import {
   RECEIVE_ERROR,
   RESET_ERROR,
   FETCH_LOCATIONS,
-  GET_PREDICTION
+  GET_PREDICTION,
 } from "../actions/actionUtils";
 
 const initialState = {
@@ -14,7 +14,7 @@ const initialState = {
   warehouses: null,
   zones: null,
   index: 13,
-  warehouse: 0
+  warehouse: 0,
 };
 
 function reducer(state = initialState, action) {

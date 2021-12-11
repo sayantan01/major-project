@@ -16,6 +16,8 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -64,66 +66,63 @@ function Graph(props) {
     ],
   };
 
-	const options = {
-	  responsive: true,
-	  tooltips: {enabled: true},
-	  plugins: {
-	    legend: {
-	      position: 'top',
-	    },
-	    title: {
-	      display: true,
-	      text: 'Vaccine Ratio vs Distance(in km) graph',
-	      color: 'green',
-	      font: {
-	      	size: 20
-	      }
-	    },
-	  },
-	  scales: {
-     x: {
-     	grid: {
-     		display: false,
-     		borderColor: "rgba(255, 99, 132, 1)",
-     		borderWidth: 3
-     	},
-     	title: {
-     		display: true,
-     		text: 'distance (in km)',
-     		color: 'red',
-     		padding: 20,
-     		font: {
-     			size: 20
-     		}
-     	}
-     },
+  const options = {
+    responsive: true,
+    tooltips: { enabled: true },
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Vaccine Ratio vs Distance(in km) graph",
+        color: "green",
+        font: {
+          size: 20,
+        },
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 3,
+        },
+        title: {
+          display: true,
+          text: "distance (in km)",
+          color: "red",
+          padding: 20,
+          font: {
+            size: 20,
+          },
+        },
+      },
       y: {
-      	grid: {
-      		display: true,
-      		borderColor: 'green',
-      		borderWidth: 3,
-      		circular: true,
-      		z: -1
-      	},
-      	title: {
-      		display: true,
-      		text: 'vaccine ratio',
-      		color: 'red',
-      		padding: 20,
-      		font: {
-      			size: 20
-      		}
-      	}
-       }
-    }
-	};
+        grid: {
+          display: true,
+          borderColor: "green",
+          borderWidth: 3,
+          circular: true,
+          z: -1,
+        },
+        title: {
+          display: true,
+          text: "vaccine ratio",
+          color: "red",
+          padding: 20,
+          font: {
+            size: 20,
+          },
+        },
+      },
+    },
+  };
 
   return (
     <div>
-      <Line
-        data={state}
-        options={options}
-      />
+      <Line data={state} options={options} />
     </div>
   );
 }
@@ -138,7 +137,7 @@ function Prediction(props) {
     if (ratios !== null) return;
     (async function fetchdata() {
       try {
-        const response = await axios.get("api/predict", {
+        const response = await axios.get(BACKEND_URL + "/api/predict", {
           params: {
             index: index,
             warehouse: warehouse,
@@ -183,22 +182,11 @@ function Prediction(props) {
     }
   };
 
-  const warehousename = (
-    <p style={{ color: "red" }}>
-      {props.warehouses != null ? props.warehouses[index].name : "None"}
-    </p>
-  );
-  const zonename = (
-    <p style={{ color: "red" }}>
-      {props.zones != null ? props.zones[index].name : "None"}
-    </p>
-  );
-
   return (
     <div className="container align-content-center my-3">
       {props.token === null && <Redirect to="/Login" />}
       {props.zones === null && <Redirect to="/dashboard" />}
-      
+
       <Helmet>
         <style>{"body { background-color: whitesmoke; }"}</style>
       </Helmet>
@@ -239,22 +227,27 @@ function Prediction(props) {
           >
             <thead style={{ color: "red" }}>
               <tr>
-                <td><b>{warehouse === 0 ? "warehouse" : "zone"}</b></td>
-                <td><b>District</b></td>
-                <td><b>Ratio</b></td>
-                <td><b>Distance (in metres)</b></td>
+                <td>
+                  <b>{warehouse === 0 ? "warehouse" : "zone"}</b>
+                </td>
+                <td>
+                  <b>District</b>
+                </td>
+                <td>
+                  <b>Ratio</b>
+                </td>
+                <td>
+                  <b>Distance (in metres)</b>
+                </td>
               </tr>
             </thead>
             <tbody>{renderRow()}</tbody>
           </table>
         </Col>
       </Row>
-      {
-      	(distances !== null) &&
-	      <Row id="graph">
-	        {<Graph distances={distances} ratios={ratios}/>}
-	      </Row>
-    	}
+      {distances !== null && (
+        <Row id="graph">{<Graph distances={distances} ratios={ratios} />}</Row>
+      )}
     </div>
   );
 }
