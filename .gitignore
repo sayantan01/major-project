@@ -1,5 +1,4 @@
-venv
-__pycache__
-.env
-datasets/code/.env
-client/node_modules
+**/venv
+**/__pycache__
+**/.env
+**/node_modules
