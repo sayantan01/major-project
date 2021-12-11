@@ -2,3 +2,4 @@ server/venv
 server/__pycache__
 server/.env
 datasets/code/.env
+client/node_modules
