@@ -79,7 +79,7 @@ async def signup(credentials: schemas.UserSignup, db: Session = Depends(get_db))
     return {"Message": "Signup Successful"}
 
 
-@app.post("/login/api/user/login")
+@app.post("/api/user/login")
 async def login(credentials: schemas.UserLogin, db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.email == credentials.email).first()
     if not user:
