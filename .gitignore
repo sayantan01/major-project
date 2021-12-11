@@ -1,7 +1,5 @@
-venv
+**/venv
 **/__pycache__
 **/.env
-server/.env
-datasets/code/.env
 **/node_modules
-client/build
+**/build
