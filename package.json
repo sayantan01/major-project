@@ -37,6 +37,9 @@
     "eject": "react-scripts eject",
     "style": "npx prettier --write ."
   },
+  "engines":{
+    "npm": "8.x"
+  },
   "proxy": "http://localhost:8000/",
   "eslintConfig": {
     "extends": [
