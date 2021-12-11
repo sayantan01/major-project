@@ -38,6 +38,7 @@
     "style": "npx prettier --write ."
   },
   "engines":{
+    "node": "12.x",
     "npm": "8.x"
   },
   "eslintConfig": {
