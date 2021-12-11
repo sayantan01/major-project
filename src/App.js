@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import jwt_decode from "jwt-decode";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
 import Home from "./components/Home";
@@ -10,10 +11,24 @@ import Logout from "./components/Logout";
 import Dashboard from "./components/Dashboard";
 import Prediction from "./components/Prediction";
 import User from "./components/User";
+import NotFound from "./components/NotFound";
+import { logoutUser } from "./actions/actionUtils";
+
 
 import "./App.css";
 
 function App(props) {
+  useEffect(() => {
+    try {
+      const token = jwt_decode(props.token);
+      const exp = token.exp;
+      if (exp < Date.now() / 1000) {
+        props.dispatch(logoutUser());
+      }
+    } catch (err) {
+      console.log("no token");
+    }
+  }, [props]);
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="md">
@@ -43,6 +58,7 @@ function App(props) {
           <Route exact path="/login" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/prediction" component={Prediction} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </div>
@@ -52,7 +68,6 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     token: state.token,
-    courses: state.courses,
   };
 };
 

@@ -6,8 +6,7 @@ import { useHistory } from "react-router-dom";
 import { getPrediction } from "../actions/actionUtils";
 import { Row, Col } from "react-bootstrap";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiY2F2aTQ3NjIiLCJhIjoiY2t2eXE2bnd6MGRqZjJ2bXYzemxnampsYyJ9.o-EjpMBqQ-B3SMVlSnJ5_A";
+mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
 const Popup = ({ feature, dispatch, history }) => {
   const { id, name, description, index, warehouse } = feature.properties;
