@@ -51,11 +51,11 @@ def csvToList(path, fields):
 
 def fetch_locations(db: Session):
     warehouses = csvToList(
-        "../datasets/data/warehouses.csv",
+        "./datasets/data/warehouses.csv",
         ["college", "district", "latitude", "longitude"],
     )
     zones = csvToList(
-        "../datasets/data/zones.csv",
+        "./datasets/data/zones.csv",
         ["headquarter", "district", "latitude", "longitude"],
     )
     return schemas.locations(warehouses=warehouses, zones=zones)
@@ -70,7 +70,7 @@ def predict_for_warehouse(warehouse_index: int, db: Session):
         )
     ratios = list(prediction_matrix[warehouse_index])
     distance_matrix = pd.read_csv(
-        "../datasets/data/distance_matrix.csv", header=None
+        "./datasets/data/distance_matrix.csv", header=None
     ).values.tolist()
     distances = list(distance_matrix[warehouse_index])
     print(ratios, distances)
@@ -86,7 +86,7 @@ def predict_for_zone(zone_index: int, db: Session):
         )
     ratios = list(prediction_matrix[:, zone_index])
     distance_matrix = pd.read_csv(
-        "../datasets/data/distance_matrix.csv", header=None
+        "./datasets/data/distance_matrix.csv", header=None
     ).values.tolist()
     distances = list(np.array(distance_matrix)[:, zone_index])
     print(ratios, distances)
