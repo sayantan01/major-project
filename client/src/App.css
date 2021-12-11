@@ -1,0 +1,19 @@
+#title {
+  font-size: clamp(1.2rem, calc(1rem + 3.4vw), 3rem);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  font-family: MD Primer Bold, Rubik, Lato, Lucida Grande, Lucida Sans Unicode,
+    Tahoma, Sans-Serif;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+}
+
+#prediction {
+  border: 3px solid green;
+}
+
+#graph {
+  border: 3px solid green;
+  background: lightyellow;
+}
+
