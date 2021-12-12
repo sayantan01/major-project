@@ -6,6 +6,9 @@ import { useHistory } from "react-router-dom";
 import { getPrediction } from "../actions/actionUtils";
 import { Row, Col } from "react-bootstrap";
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
 const Popup = ({ feature, dispatch, history }) => {
@@ -80,6 +83,7 @@ function MapC(props) {
         const geojson_data = [];
         if(props.warehouses !== null && props.zones !== null) {
           props.warehouses.map((w, i) => {
+            return (
             geojson_data.push({
               type: "Feature",
               geometry: {
@@ -93,9 +97,10 @@ function MapC(props) {
                 index: i,
                 warehouse: 1,
               },
-            });
+            }));
           });
           props.zones.map((z, i) => {
+            return (
             geojson_data.push({
               type: "Feature",
               geometry: {
@@ -109,7 +114,7 @@ function MapC(props) {
                 index: i,
                 warehouse: 0,
               },
-            });
+            }));
           });
         }
 
@@ -154,9 +159,9 @@ function MapC(props) {
     });
 
     return () => map.remove();
-  }, []);
+  });
 
-  return <div className="map-container" ref={mapContainerRef} />;
+  return <div className="map-container" ref={mapContainerRef} style = {{ width: '50vw' }}/>;
 }
 
 const mapStateToProps = function (state) {

@@ -9,7 +9,6 @@ import Map from "./Map";
 
 function Dashboard(props) {
   useEffect(() => {
-    console.log(props.warehouses);
     if (props.token !== null && props.warehouses === null) {
       props.dispatch(fetchLocations(props.token));
     }
