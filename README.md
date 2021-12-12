@@ -7,10 +7,6 @@
 
 ![preview1](https://user-images.githubusercontent.com/57137595/145704831-7e644956-efcf-4af1-b680-96317055b4b3.png)
 
-![preview2](https://user-images.githubusercontent.com/57137595/145704835-aaff77ef-5597-43df-a5c6-9ec3d5cf91b2.png)
-
-![preview3](https://user-images.githubusercontent.com/57137595/145704837-86c4c10c-f942-455f-bfa2-841ba0fc94ba.png)
-
 <br />
 
 ## Important Links :
@@ -43,11 +39,11 @@ Backend and Frontend services are deployed separately on heroku. CI/CD is implem
 
 <img alt="React" align="left" width="50px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
 
-<img alt="Fastapi" align="left" width="50px" src="https://bharatsraj.com/wp-content/uploads/2021/05/fastapi.png" /> 
+<img alt="Fastapi" align="left" width="50px" height="50px" src="https://bharatsraj.com/wp-content/uploads/2021/05/fastapi.png" /> 
 
 <img alt="Postgresql" align="left" width="50px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" />
 
-<img alt="SqlAlchemy" align="left" width="50px" src="https://hakin9.org/wp-content/uploads/2019/08/connect-a-flask-app-to-a-mysql-database-with-sqlalchemy-and-pymysql.jpg" />
+<img alt="SqlAlchemy" align="left" width="50px" height="50px" src="https://hakin9.org/wp-content/uploads/2019/08/connect-a-flask-app-to-a-mysql-database-with-sqlalchemy-and-pymysql.jpg" />
 
 <img alt="Heroku Postgres" align="left" width="100px" height = "50px" src="https://miro.medium.com/max/1200/1*PR3N41Yzq0bEQw9imFmrJQ.png" /> 
 
@@ -64,8 +60,7 @@ Backend and Frontend services are deployed separately on heroku. CI/CD is implem
 - Authentication & Authorization: ***JWT***
 - PaaS: ***Heroku***
 
-
-
+<br />
 ## How to contribute ?
 
 To contribute to a particular section of the system :
