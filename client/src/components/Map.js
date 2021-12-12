@@ -7,9 +7,7 @@ import { getPrediction } from "../actions/actionUtils";
 import { Row, Col } from "react-bootstrap";
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
-
-mapboxgl.workerClass = MapboxWorker.default;
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
