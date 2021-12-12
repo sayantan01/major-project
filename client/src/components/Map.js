@@ -9,7 +9,7 @@ import { Row, Col } from "react-bootstrap";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 
-maxboxgl.workerClass = MapboxWorker.default;
+mapboxgl.workerClass = MapboxWorker.default;
 
 mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
