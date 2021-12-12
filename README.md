@@ -5,6 +5,13 @@
 ## A website to help students and teachers collaborate virtually
 <br />  
 
+![preview1](https://user-images.githubusercontent.com/57137595/145704831-7e644956-efcf-4af1-b680-96317055b4b3.png)
+
+![preview2](https://user-images.githubusercontent.com/57137595/145704835-aaff77ef-5597-43df-a5c6-9ec3d5cf91b2.png)
+
+![preview3](https://user-images.githubusercontent.com/57137595/145704837-86c4c10c-f942-455f-bfa2-841ba0fc94ba.png)
+
+<br />
 
 ## Important Links :
 
@@ -19,7 +26,7 @@ This system predicts the optimal ratio of vaccines to be transferred from variou
 
 <br />
 
-## Developer guide :
+## Developer guide
 
 This system has 2 separate parts and code for each part is in their respective branch :
 
