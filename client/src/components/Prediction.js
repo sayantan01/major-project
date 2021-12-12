@@ -46,8 +46,8 @@ function Graph(props) {
   let distances = [];
   let ratios = [];
   vaccine_data.map((item, i) => {
-    distances.push((item[0] / 1000).toFixed(2))
-    ratios.push(item[1].toFixed(2))
+    distances.push((item[0] / 1000).toFixed(2));
+    ratios.push(item[1].toFixed(2));
     return 0;
   });
 
@@ -247,7 +247,9 @@ function Prediction(props) {
         </Col>
       </Row>
       {distances !== null && (
-        <Row id="graph" className="d-flex justify-content-center"><Col>{<Graph distances={distances} ratios={ratios} />}</Col></Row>
+        <Row id="graph" className="d-flex justify-content-center">
+          <Col>{<Graph distances={distances} ratios={ratios} />}</Col>
+        </Row>
       )}
     </div>
   );

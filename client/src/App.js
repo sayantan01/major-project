@@ -14,7 +14,6 @@ import User from "./components/User";
 import NotFound from "./components/NotFound";
 import { logoutUser } from "./actions/actionUtils";
 
-
 import "./App.css";
 
 function App(props) {

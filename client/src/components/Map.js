@@ -7,7 +7,8 @@ import { getPrediction } from "../actions/actionUtils";
 import { Row, Col } from "react-bootstrap";
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
@@ -81,10 +82,9 @@ function MapC(props) {
     map.on("moveend", async () => {
       try {
         const geojson_data = [];
-        if(props.warehouses !== null && props.zones !== null) {
+        if (props.warehouses !== null && props.zones !== null) {
           props.warehouses.map((w, i) => {
-            return (
-            geojson_data.push({
+            return geojson_data.push({
               type: "Feature",
               geometry: {
                 type: "Point",
@@ -97,11 +97,10 @@ function MapC(props) {
                 index: i,
                 warehouse: 1,
               },
-            }));
+            });
           });
           props.zones.map((z, i) => {
-            return (
-            geojson_data.push({
+            return geojson_data.push({
               type: "Feature",
               geometry: {
                 type: "Point",
@@ -114,7 +113,7 @@ function MapC(props) {
                 index: i,
                 warehouse: 0,
               },
-            }));
+            });
           });
         }
 
@@ -123,9 +122,8 @@ function MapC(props) {
           features: geojson_data,
         };
         map.getSource("random-points-data").setData(results);
-      }
-      catch {
-        console.log('initializing...')
+      } catch {
+        console.log("initializing...");
       }
     });
 
@@ -161,7 +159,13 @@ function MapC(props) {
     return () => map.remove();
   });
 
-  return <div className="map-container" ref={mapContainerRef} style = {{ width: '50vw' }}/>;
+  return (
+    <div
+      className="map-container"
+      ref={mapContainerRef}
+      style={{ width: "50vw" }}
+    />
+  );
 }
 
 const mapStateToProps = function (state) {
