@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
-## A website to help students and teachers collaborate virtually
+## A website to predict distribution of covid vaccines optimally
 <br />  
 
 ![preview1](https://user-images.githubusercontent.com/57137595/145704831-7e644956-efcf-4af1-b680-96317055b4b3.png)
