@@ -3,7 +3,11 @@
 ![](https://github.com/sayantan01/online-classroom/workflows/Deploy/badge.svg)
 
 ## Server part of the vaccine scheduler application
-<br />  
+<br /> 
+
+![preview4](https://user-images.githubusercontent.com/57137595/145705361-e9be8e35-5234-4279-8ee8-3356c8a4ab99.png)
+
+<br />
 
 ## Running the api server on localhost :
 
