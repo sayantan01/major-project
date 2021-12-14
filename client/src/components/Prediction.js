@@ -158,25 +158,29 @@ function Prediction(props) {
       return;
     if (warehouse === 0) {
       return props.warehouses.map((item, i) => {
+        if(ratios[i] === 0)
+          return;
         return (
           <TableRow
             key={i}
             name={item.name}
             district={item.district}
             ratio={ratios[i]}
-            distance={distances[i]}
+            distance={distances[i]/1000}
           />
         );
       });
     } else {
       return props.zones.map((item, i) => {
+        if(ratios[i] === 0)
+          return;
         return (
           <TableRow
             key={i}
             name={item.name}
             district={item.district}
             ratio={ratios[i]}
-            distance={distances[i]}
+            distance={distances[i]/1000}
           />
         );
       });
@@ -238,7 +242,7 @@ function Prediction(props) {
                   <b>Ratio</b>
                 </td>
                 <td>
-                  <b>Distance (in metres)</b>
+                  <b>Distance (in km)</b>
                 </td>
               </tr>
             </thead>
@@ -248,7 +252,7 @@ function Prediction(props) {
       </Row>
       {distances !== null && (
         <Row id="graph" className="d-flex justify-content-center">
-          <Col>{<Graph distances={distances} ratios={ratios} />}</Col>
+          {<Graph distances={distances} ratios={ratios} />}
         </Row>
       )}
     </div>
