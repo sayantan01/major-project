@@ -76,7 +76,7 @@ function Signup(props) {
           dismissible
         >
           <p>
-            Successfully registered. You can Now <a href="/login">Login here</a>
+            Successfully registered. You can Now <a href="/Login">Login here</a>
           </p>
         </Alert>
       )}
