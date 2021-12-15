@@ -12,6 +12,7 @@ import Dashboard from "./components/Dashboard";
 import Prediction from "./components/Prediction";
 import User from "./components/User";
 import NotFound from "./components/NotFound";
+import Analytics from "./components/Analytics";
 import { logoutUser } from "./actions/actionUtils";
 
 import "./App.css";
@@ -39,6 +40,7 @@ function App(props) {
               <Nav.Link href="/signup">Signup</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+              <Nav.Link href="/analytics">Analytics</Nav.Link>
               {props.token !== null && (
                 <Nav.Item>
                   <User />
@@ -57,6 +59,7 @@ function App(props) {
           <Route exact path="/login" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/prediction" component={Prediction} />
+          <Route exact path="/analytics" component={Analytics} />
           <Route component={NotFound} />
         </Switch>
       </Router>

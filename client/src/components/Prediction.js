@@ -158,29 +158,27 @@ function Prediction(props) {
       return;
     if (warehouse === 0) {
       return props.warehouses.map((item, i) => {
-        if(ratios[i] === 0)
-          return;
+        if (ratios[i] === 0) return;
         return (
           <TableRow
             key={i}
             name={item.name}
             district={item.district}
             ratio={ratios[i]}
-            distance={distances[i]/1000}
+            distance={distances[i] / 1000}
           />
         );
       });
     } else {
       return props.zones.map((item, i) => {
-        if(ratios[i] === 0)
-          return;
+        if (ratios[i] === 0) return;
         return (
           <TableRow
             key={i}
             name={item.name}
             district={item.district}
             ratio={ratios[i]}
-            distance={distances[i]/1000}
+            distance={distances[i] / 1000}
           />
         );
       });
@@ -215,6 +213,24 @@ function Prediction(props) {
                     ) : (
                       <p style={{ color: "red" }}>
                         {props.zones != null ? props.zones[index].name : "None"}
+                      </p>
+                    )}
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xl={6}>District</Col>
+                  <Col>
+                    {warehouse === 1 ? (
+                      <p style={{ color: "red" }}>
+                        {props.warehouses != null
+                          ? props.warehouses[index].district
+                          : "None"}
+                      </p>
+                    ) : (
+                      <p style={{ color: "red" }}>
+                        {props.zones != null
+                          ? props.zones[index].district
+                          : "None"}
                       </p>
                     )}
                   </Col>
