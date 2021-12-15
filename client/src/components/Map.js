@@ -12,7 +12,7 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 mapboxgl.accessToken = process.env.REACT_APP_ACCESSTOKEN;
 
 const Popup = ({ feature, dispatch, history }) => {
-  const { id, name, description, index, warehouse } = feature.properties;
+  const { id, name, district, description, index, warehouse } = feature.properties;
 
   const handleClick = (e) => {
     dispatch(getPrediction(index, warehouse));
@@ -23,7 +23,7 @@ const Popup = ({ feature, dispatch, history }) => {
     <div id={`popup-${id}`}>
       <Row>
         <Col>
-          <h6 style={{ color: "red" }}>{name}</h6>
+          <h6 style={{ color: "red" }}>{name}, {district}</h6>
         </Col>
       </Row>
       <Row>
@@ -92,6 +92,7 @@ function MapC(props) {
               properties: {
                 id: i,
                 name: w.name,
+                district: w.district,
                 description: "warehouse",
                 index: i,
                 warehouse: 1,
@@ -108,6 +109,7 @@ function MapC(props) {
               properties: {
                 id: props.warehouses.length + i,
                 name: z.name,
+                district: z.district,
                 description: "zone",
                 index: i,
                 warehouse: 0,
