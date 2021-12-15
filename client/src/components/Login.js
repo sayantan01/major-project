@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
 import { connect } from "react-redux";
-import { Alert } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 import { login } from "../actions/creators";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -56,6 +56,7 @@ function Login(props) {
       <form onSubmit={onSubmit}>
         <div className="d-grid gap-2 col-6 mx-auto text-center my-4">
           <h2 className="form-title">Login</h2>
+          {submitted && props.errors === "" && <Spinner animation="border" variant="primary" className="mx-auto"/>}
         </div>
 
         <div className="d-grid gap-2 col-6 mx-auto my-3">

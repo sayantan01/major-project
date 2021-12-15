@@ -200,7 +200,7 @@ function Prediction(props) {
               <h3>
                 <Row>
                   <Col xl={6}>
-                    Optimal ratio of vaccines from{" "}
+                    Optimal ratio of vaccines for{" "}
                     {warehouse === 1 ? "warehouse:" : "zone:"}
                   </Col>
                   <Col>
