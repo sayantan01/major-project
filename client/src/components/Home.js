@@ -1,6 +1,8 @@
 import React from "react";
-import { Row, Carousel, Button } from "react-bootstrap";
+import { Row, Carousel, Button, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import logo from './logo.png';
+import MediaCard from './Cards';
 
 function Home() {
 
@@ -11,44 +13,35 @@ function Home() {
   }
 
   return (
-    <div className="container-fluid text-center" style={{ backgroundColor: "#1b1b1b" }}>
-      <h1 id="title" className="text-center py-2">
-        Vaccination Scheduler
-      </h1>
-      <h4 className="text-center py-2" style={{ color: "grey" }}>
-        Predict the distribution of vaccines optimally
-      </h4>
-      <Button variant="primary" onClick={handleClick}>
-        Get started here
-      </Button>
-      <Row xl={3} lg={2} md={2} sm={1}>
-        <Carousel
-          style={{ width: 800, height: 500, margin: "auto", marginTop: 50 }}
-        >
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="homepage1.png"
-              alt="First slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="homepage2.jpg"
-              alt="Second slide"
-            />
-          </Carousel.Item>
+    <div>
+      <div className="container-fluid text-center" style={{ backgroundColor: "rgb(0, 30, 60)" }}>
+        <h1 id="title" className="text-center py-2">
+          CoviPred
+        </h1>
+        <h4 className="text-center py-2" style={{ color: "grey" }}>
+          Intelligent prediction system for covid
+        </h4>
+        <Button variant="primary" onClick={handleClick}>
+          Get started here
+        </Button>
+        <header className="App-header my-5">
+            <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="homepage3.jpeg"
-              alt="Third slide"
-            />
-          </Carousel.Item>
-        </Carousel>
-      </Row>
+      <div className="my-3 d-flex justify-content-center" >
+        <Row>
+        <Col lg={4} xs={8} mx-auto className="my-3">
+          <MediaCard image="card1.jpg" title="Vaccine ratio predictor" text="Predict vaccine ratio Zone and Warehouse wise. Several epidemiological factors considered."/>
+        </Col>
+        <Col lg={4} xs={8} className="my-3">
+          <MediaCard image="card2.jpg" title="Covid cases predictor" text="Predict new covid cases districtwise. Several ML models deployed."/>
+        </Col>
+        <Col lg={4} xs={8} className="my-3">
+          <MediaCard image="card3.png" title="Data analyzer" text="Analyze trends in covid data through various graphs and charts"/>
+        </Col>
+        </Row>
+      </div>
     </div>
   );
 }

@@ -9,12 +9,13 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
+  ArcElement,
   LineElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Line, Doughnut, Pie } from "react-chartjs-2";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -23,6 +24,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -128,6 +130,60 @@ function Graph(props) {
   );
 }
 
+function DoughnutChart(props) {
+  let _ratios= []
+  let _names = []
+  props.names.map((item, i) => {
+    if(props.ratios[i] === 0)
+      return
+    _names.push(item.name)
+    _ratios.push(props.ratios[i])
+  })
+
+  console.log(_names)
+  const data = {
+    labels: _names,
+    datasets: [
+        {
+            label: 'Distribution of vaccines',
+            data: _ratios,
+            borderColor: "white",
+            backgroundColor: "violet",
+            pointBackgroundColor: 'rgba(255,206,86,0.2)',
+        }
+
+    ]
+  }
+
+  const options = {
+    plugins: {
+        title: {
+            display: true,
+            text: 'Distribution of vaccines',
+            color:'white',
+            font: {
+                size:34
+            },
+            padding:{
+                top:30,
+                bottom:30
+            },
+            responsive:true,
+            animation:{
+                animateScale: true,
+                           }
+        }
+    }
+
+  }
+
+  return (
+      <div>
+          <Pie data={data} options={options} />
+      </div>
+    )
+}
+
 function Prediction(props) {
   const [ratios, setRatios] = useState(null);
   const [distances, setDistances] = useState(null);
@@ -191,7 +247,7 @@ function Prediction(props) {
       {props.zones === null && <Redirect to="/dashboard" />}
 
       <Helmet>
-        <style>{"body { background-color: whitesmoke; }"}</style>
+        <style>{"body { background-color: rgb(0, 30, 60); }"}</style>
       </Helmet>
       <Row className="my-3">
         <Col>
@@ -199,35 +255,35 @@ function Prediction(props) {
             <div>
               <h3>
                 <Row>
-                  <Col xl={6}>
+                  <Col xl={6} id="heading">
                     Optimal ratio of vaccines for{" "}
                     {warehouse === 1 ? "warehouse:" : "zone:"}
                   </Col>
                   <Col>
                     {warehouse === 1 ? (
-                      <p style={{ color: "red" }}>
+                      <p id="heading2">
                         {props.warehouses != null
                           ? props.warehouses[index].name
                           : "None"}
                       </p>
                     ) : (
-                      <p style={{ color: "red" }}>
+                      <p id="heading2">
                         {props.zones != null ? props.zones[index].name : "None"}
                       </p>
                     )}
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl={6}>District</Col>
+                  <Col xl={6} id="heading">District:</Col>
                   <Col>
                     {warehouse === 1 ? (
-                      <p style={{ color: "red" }}>
+                      <p id="heading2">
                         {props.warehouses != null
                           ? props.warehouses[index].district
                           : "None"}
                       </p>
                     ) : (
-                      <p style={{ color: "red" }}>
+                      <p id="heading2">
                         {props.zones != null
                           ? props.zones[index].district
                           : "None"}
@@ -241,10 +297,10 @@ function Prediction(props) {
         </Col>
       </Row>
       <Row className="my-5 d-flex justify-content-center">
-        <Col lg={8}>
+        <Col lg={7}>
           <table
             id="prediction"
-            className="table table-light table-striped table-hover"
+            className="table table-dark table-striped table-hover"
           >
             <thead style={{ color: "red" }}>
               <tr>
@@ -265,6 +321,7 @@ function Prediction(props) {
             <tbody>{renderRow()}</tbody>
           </table>
         </Col>
+
       </Row>
       {distances !== null && (
         <Row id="graph" className="d-flex justify-content-center">

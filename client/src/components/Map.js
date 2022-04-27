@@ -66,19 +66,27 @@ function MapC(props) {
         },
       });
 
+      map.loadImage(
+        'mapicon.png',
+        (error, image) => {
+        if (error) throw error;
+         
+        // Add the image to the map style.
+        map.addImage('mapicon', image);
       map.addLayer({
         id: "random-points-layer",
         source: "random-points-data",
         type: "symbol",
         layout: {
-          "icon-image": "bar-15",
-          "icon-padding": 0,
+          "icon-image": "mapicon",
+          "icon-size": 0.04,
+          "icon-padding": 3,
           "icon-allow-overlap": true,
         },
-      });
+      });})
     });
 
-    map.on("moveend", async () => {
+    map.on("load", async () => {
       try {
         const geojson_data = [];
         if (props.warehouses !== null && props.zones !== null) {

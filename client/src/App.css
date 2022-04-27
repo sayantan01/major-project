@@ -19,19 +19,125 @@
 }
 
 #prediction {
-  border: 3px solid green;
+  border: 1px solid grey;
+  box-shadow: 5px 5px 5px 5px lightblue;
 }
 
 #graph {
   border: 3px solid green;
   background: lightyellow;
+  margin-bottom: 140px;
+ -webkit-box-shadow: 0 0 50px lightblue;
+    box-shadow: 0 0 50px lightblue;
 }
 
 .map-container {
   border: 3px solid green;
+  -webkit-box-shadow: 0 0 50px lightblue;
+      box-shadow: 0 0 50px lightblue;
+      
+}
+
+.map-container:hover {
+  -webkit-box-shadow: 0 0 80px lightblue;
+      box-shadow: 0 0 80px lightblue;
 }
 
 #analytics {
   border: 3px solid white;
   background-color: green;
 }
+
+#loginbrand {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #loginbrand {
+    animation: loginbrand-spin infinite 5s linear;
+  }
+}
+
+@keyframes loginbrand-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#nav {
+  opacity: 0.8
+}
+
+#nav:hover {
+  opacity: 1
+}
+
+#heading {
+  color: white;
+  text-shadow: 5px 5px 5px blue;
+}
+
+#heading:hover {
+  color: orange;
+  transform:scale(1.05);
+}
+
+#inp:hover {
+  box-shadow: 1px 1px 1px blue;
+  transform:scale(1.05);
+}
+
+#inp2 {
+  -webkit-box-shadow: 0 0 10px blue;
+      box-shadow: 0 0 10px blue;
+}
+
+#inp2:hover {
+  -webkit-box-shadow: 0 0 20px blue;
+      box-shadow: 0 0 20px blue;
+}
+
+#heading2 {
+  color: violet;
+  font-style: oblique;
+  text-shadow: 5px 5px 5px darkblue;
+}
+
+#heading2:hover {
+  color: yellow;
+  transform:scale(1.05);
+  text-shadow: 5px 5px 5px blue;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#card {
+  -webkit-box-shadow: 0 0 10px black;
+      box-shadow: 0 0 10px black;
+}
+
+#card: hover {
+    transform: scale(1.05);
+}  
+

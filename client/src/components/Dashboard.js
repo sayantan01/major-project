@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -24,12 +24,14 @@ function Dashboard(props) {
   }
 
   return (
-    <div className="container align-content-center my-3">
+    <div className="container align-content-center justify-content-center my-3">
       {props.token === null && <Redirect to="/Login" />}
       <Helmet>
-        <style>{"body { background-color: whitesmoke; }"}</style>
+        <style>{"body { background-color: rgb(0, 30, 60); }"}</style>
       </Helmet>
-      <h2>Get the predictions here</h2>
+      <h2 id="heading">Get the predictions here</h2>
+      <Row className="my-5">
+      <Col lg={6}>
       <Row className="my-5">
         <Search
           options={warehouses}
@@ -38,10 +40,14 @@ function Dashboard(props) {
         />
       </Row>
       <Row className="my-5">
-        <Search options={zones} warehouse={0} title="search by zone" />
+        <Search options={zones} warehouse={0} title="search by zone"/>
       </Row>
+      </Col>
+      <Col lg={6}>
       <Row className="my-5 mx-auto">
         <Map />
+      </Row>
+      </Col>
       </Row>
     </div>
   );

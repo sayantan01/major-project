@@ -13,6 +13,8 @@ import Prediction from "./components/Prediction";
 import User from "./components/User";
 import NotFound from "./components/NotFound";
 import Analytics from "./components/Analytics";
+import Models from "./components/Models";
+import Footer from "./components/Footer";
 import { logoutUser } from "./actions/actionUtils";
 
 import "./App.css";
@@ -31,9 +33,15 @@ function App(props) {
   }, [props]);
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="md">
+      <Navbar bg="dark" sticky="top" variant="dark" expand="md" id="nav">
         <Container>
-          <Navbar.Brand href="/home">Vaccine scheduler</Navbar.Brand>
+          <Navbar.Brand href="/home"><img
+          alt=""
+          src="logo.png"
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />{' '}Vaccine scheduler</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
@@ -41,6 +49,7 @@ function App(props) {
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
               <Nav.Link href="/analytics">Analytics</Nav.Link>
+              <Nav.Link href="/models">Models</Nav.Link>
               {props.token !== null && (
                 <Nav.Item>
                   <User />
@@ -60,9 +69,11 @@ function App(props) {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/prediction" component={Prediction} />
           <Route exact path="/analytics" component={Analytics} />
+          <Route exact path="/models" component={Models} />
           <Route component={NotFound} />
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }

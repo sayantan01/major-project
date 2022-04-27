@@ -33,6 +33,7 @@ function Search(props) {
             options={searchNames}
             placeholder={props.title}
             onChange={handleSelect}
+            id="inp2"
           />
         </Col>
         <Col xs={4}>
