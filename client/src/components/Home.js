@@ -32,13 +32,13 @@ function Home() {
       <div className="my-3 d-flex justify-content-center" >
         <Row>
         <Col lg={4} xs={8} mx-auto className="my-3">
-          <MediaCard image="card1.jpg" title="Vaccine ratio predictor" text="Predict vaccine ratio Zone and Warehouse wise. Several epidemiological factors considered."/>
+          <MediaCard image="card1.jpg" title="Vaccine ratio predictor" text="Predict vaccine ratio Zone and Warehouse wise. Several epidemiological factors considered." url="/dashboard"/>
         </Col>
         <Col lg={4} xs={8} className="my-3">
-          <MediaCard image="card2.jpg" title="Covid cases predictor" text="Predict new covid cases districtwise. Several ML models deployed."/>
+          <MediaCard image="card2.jpg" title="Covid cases predictor" text="Predict new covid cases districtwise. Several ML models deployed." url="/models"/>
         </Col>
         <Col lg={4} xs={8} className="my-3">
-          <MediaCard image="card3.png" title="Data analyzer" text="Analyze trends in covid data through various graphs and charts"/>
+          <MediaCard image="card3.png" title="Data analyzer" text="Analyze trends in covid data through various graphs and charts" url="/analytics"/>
         </Col>
         </Row>
       </div>
