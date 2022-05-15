@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function User(props) {
   return (
     <div>
       <p style={{ color: "white" }} className="mx-md-5 my-2">
-        Hello {props.email.split("@")[0]}
+        <FontAwesomeIcon icon={faUser} /> {props.email.split("@")[0]}
       </p>
     </div>
   );

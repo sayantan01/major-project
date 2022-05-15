@@ -47,9 +47,9 @@ function App(props) {
             <Nav className="mr-auto">
               <Nav.Link href="/signup">Signup</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="/analytics">Analytics</Nav.Link>
-              <Nav.Link href="/models">Models</Nav.Link>
+              <Nav.Link href="/dashboard">Vaccine-predictor</Nav.Link>
+              <Nav.Link href="/analytics">Data-analytics</Nav.Link>
+              <Nav.Link href="/models">Case-predictor</Nav.Link>
               {props.token !== null && (
                 <Nav.Item>
                   <User />

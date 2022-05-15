@@ -4,6 +4,7 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import Disqus from "disqus-react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -190,6 +191,13 @@ function Prediction(props) {
   const index = props.index;
   const warehouse = props.warehouse;
 
+  const disqusShortname = "covipred";
+  const disqusConfig = {
+    url: "https://vaccine-scheduler-2021-app.herokuapp.com/",
+    identifier: "comment-id",
+    title: "discuss",
+  };
+
   useEffect(() => {
     if (ratios !== null) return;
     (async function fetchdata() {
@@ -328,6 +336,12 @@ function Prediction(props) {
           {<Graph distances={distances} ratios={ratios} />}
         </Row>
       )}
+      <div className="my-5">
+        <Disqus.DiscussionEmbed
+          shortname={disqusShortname}
+          config={disqusConfig}
+        />
+      </div>
     </div>
   );
 }

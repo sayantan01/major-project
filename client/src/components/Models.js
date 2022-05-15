@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import * as Papa from 'papaparse';
+import Disqus from "disqus-react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -130,6 +132,13 @@ function Models(props) {
   const models = ['Random Forest Regressor', 'GRU', 'LSTM']
   const filenames = ['rf.csv', 'gru.csv', 'lstm.csv']
 
+  const disqusShortname = "covipred";
+  const disqusConfig = {
+    url: "https://vaccine-scheduler-2021-app.herokuapp.com/",
+    identifier: "comment-id",
+    title: "discuss",
+  };
+
   const getDists = () => {
     let dists_ = []
     fetch('./data/rf.csv')
@@ -195,7 +204,7 @@ function Models(props) {
   if(dists !== null)  
   {
     dists.map((option, i) =>
-      searchDists.push({ value: option, label: option })
+      searchDists.push({ value: option, label: option.charAt(0).toUpperCase() + option.slice(1) })
     );
   }
   models.map((option, i) =>
@@ -213,8 +222,8 @@ function Models(props) {
             <TableRow
               key={i}
               date={item[1]}
-              predicted={item[4]}
-              true={item[3]}
+              predicted={parseFloat(item[4]).toFixed(2)}
+              true={parseFloat(item[3]).toFixed(2)}
             />
           );
         });
@@ -228,7 +237,7 @@ function Models(props) {
       </Helmet>
       <Row>
       <Col xs={5}>
-      <h2 id="heading">ML Models analysis</h2>
+      <h2 id="heading">Case predictor</h2>
       </Col>
       {show === true && 
       <Col xs={4}>
@@ -296,6 +305,12 @@ function Models(props) {
           {displayData !== null && <Graph data={displayData} />}
         </Col>
       </Row>}
+      <div className="my-5">
+        <Disqus.DiscussionEmbed
+          shortname={disqusShortname}
+          config={disqusConfig}
+        />
+      </div>
     </div>
   );
 }

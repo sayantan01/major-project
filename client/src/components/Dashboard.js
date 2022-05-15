@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Search from "./Search";
 import { fetchLocations } from "../actions/creators";
+import Disqus from "disqus-react";
 import Map from "./Map";
 
 function Dashboard(props) {
@@ -13,6 +14,14 @@ function Dashboard(props) {
       props.dispatch(fetchLocations(props.token));
     }
   });
+
+
+  const disqusShortname = "covipred";
+  const disqusConfig = {
+    url: "https://vaccine-scheduler-2021-app.herokuapp.com/",
+    identifier: "comment-id",
+    title: "discuss",
+  };
 
   const warehouses = [];
   const zones = [];
@@ -29,7 +38,7 @@ function Dashboard(props) {
       <Helmet>
         <style>{"body { background-color: rgb(0, 30, 60); }"}</style>
       </Helmet>
-      <h2 id="heading">Get the predictions here</h2>
+      <h2 id="heading">Vaccine Ratio Predictor</h2>
       <Row className="my-5">
       <Col lg={6}>
       <Row className="my-5">
@@ -49,6 +58,12 @@ function Dashboard(props) {
       </Row>
       </Col>
       </Row>
+     <div className="my-5">
+      <Disqus.DiscussionEmbed
+        shortname={disqusShortname}
+        config={disqusConfig}
+      />
+    </div>
     </div>
   );
 }
