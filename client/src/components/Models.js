@@ -128,9 +128,11 @@ function Models(props) {
   const [inputdist, setInputdist] = useState("");
   const [show, setShow] = useState(false);
   const [smape, setSmape] = useState("");
+  const [mtype, setMtype] = useState("");
   const [inputmodel, setInputmodel] = useState("");
   const models = ['Random Forest Regressor', 'GRU', 'LSTM']
   const filenames = ['rf.csv', 'gru.csv', 'lstm.csv']
+  const mtypes = ['single day prediction', '7 days prediction', '7 days prediction']
 
   const disqusShortname = "covipred";
   const disqusConfig = {
@@ -175,6 +177,7 @@ function Models(props) {
       
         setSmape(getSmape(dispd))
         setDispData(dispd);
+        setMtype(mtypes[models.indexOf(model)]);
       })
 
   }
@@ -213,8 +216,6 @@ function Models(props) {
 
 
   const renderRow = () => {
-          console.log('ok')
-          console.log(displayData)
       if (displayData === null)
         return;
         return displayData.map((item, i) => {
@@ -242,6 +243,7 @@ function Models(props) {
       {show === true && 
       <Col xs={4}>
         <h5 id="heading">Smape: {smape}</h5>
+        <h5 id="heading">Model type: {mtype}</h5>
       </Col>
       }
       </Row>
