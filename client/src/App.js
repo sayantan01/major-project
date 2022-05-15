@@ -41,7 +41,7 @@ function App(props) {
           width="30"
           height="30"
           className="d-inline-block align-top"
-        />{' '}Vaccine scheduler</Navbar.Brand>
+        />{' '}CoviPred</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
