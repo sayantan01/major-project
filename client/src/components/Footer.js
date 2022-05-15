@@ -14,8 +14,8 @@ function Footer() {
     setValue(newValue);
   }}
 >
-  <BottomNavigationAction icon={<GitHubIcon sx={{color: 'white'}}/>}/>
-  <BottomNavigationAction icon={<LinkedInIcon sx={{color: 'white'}}/>}/>
+  <BottomNavigationAction icon={<GitHubIcon sx={{color: 'white'}} />} href="https://github.com/sayantan01/major-project" />
+  <BottomNavigationAction icon={<LinkedInIcon sx={{color: 'white'}}/>} href="https://www.linkedin.com/school/iiests.ac.in/"/>
 
 </BottomNavigation>
 </Paper>)
