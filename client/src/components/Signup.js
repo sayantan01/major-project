@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Redirect, withRouter } from "react-router";
 import { connect } from "react-redux";
-import { Alert } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash, faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
@@ -20,6 +20,7 @@ function Signup(props) {
   const [passwdshow, setPasswdshow] = useState(0);
   const [namefocus, setNamefocus] = useState(false);
   const [mailfocus, setMailfocus] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   let passwdicon = passwdshow === 1 ? faEye : faEyeSlash;
 
@@ -54,6 +55,7 @@ function Signup(props) {
   };
 
   const onSubmit = (e) => {
+    setSubmitted(true);
     e.preventDefault();
     const userObj = {
       name: values.name,
@@ -64,10 +66,12 @@ function Signup(props) {
       .post(BACKEND_URL + "/api/user/signup", userObj)
       .then((res) => {
         console.log("User registered successfully!");
+        setSubmitted(false);
         setSuccessful(true);
       })
       .catch((err) => {
         console.log(err);
+        setSubmitted(false);
         if (err.response.status !== 500) setSignuperror(err.response.data.msg);
         else setSignuperror("Internal server error");
       });
@@ -92,6 +96,7 @@ function Signup(props) {
           </p>
         </Alert>
       )}
+
       <Helmet>
         <style>{"body { background-color: rgb(0, 30, 60); }"}</style>
       </Helmet>
@@ -105,6 +110,7 @@ function Signup(props) {
           className="d-inline-block align-top"
           id="loginbrand"
         /></h2>
+            {submitted && <Spinner animation="border" variant="primary" className="mx-auto"/>}
         </div>
         <div className="d-grid gap-2 col-6 mx-auto my-3">
           <label style={{color: 'white'}}>

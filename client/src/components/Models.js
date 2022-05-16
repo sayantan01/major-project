@@ -132,7 +132,7 @@ function Models(props) {
   const [inputmodel, setInputmodel] = useState("");
   const models = ['Random Forest Regressor', 'GRU', 'LSTM']
   const filenames = ['rf.csv', 'gru.csv', 'lstm.csv']
-  const mtypes = ['single day prediction', '7 days prediction', '7 days prediction']
+  const mtypes = ['1 day prediction', '7 days prediction', '7 days prediction']
 
   const disqusShortname = "covipred";
   const disqusConfig = {
@@ -242,8 +242,8 @@ function Models(props) {
       </Col>
       {show === true && 
       <Col xs={4}>
-        <h5 id="heading">Smape: {smape}</h5>
-        <h5 id="heading">Model type: {mtype}</h5>
+        <h5 id="heading">Percentage error(Smape): <i>{smape.toFixed(4)}</i></h5>
+        <h5 id="heading">Model type: <i>{mtype}</i></h5>
       </Col>
       }
       </Row>
