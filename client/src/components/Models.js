@@ -242,7 +242,7 @@ function Models(props) {
       </Col>
       {show === true && 
       <Col xs={4}>
-        <h5 id="heading">Percentage error(Smape): <i>{smape.toFixed(4)}</i></h5>
+        <h5 id="heading">Percentage error(Smape): <i>{parseFloat(smape).toFixed(4)}</i></h5>
         <h5 id="heading">Model type: <i>{mtype}</i></h5>
       </Col>
       }
