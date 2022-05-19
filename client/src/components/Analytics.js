@@ -66,6 +66,14 @@ function MobilityGraph(props) {
               id="mimg"
             />        
           </Col>
+          <Col lg={6} xs={12} mx-auto className="my-3">
+            <img
+              className="img-fluid mx-auto d-block"
+              src={props.path[5]}
+              alt={props.title[5]}
+              id="mimg"
+            />        
+          </Col>
       </Row>
     </div>
 
@@ -107,7 +115,7 @@ function Analytics(props) {
             <AnalyticsGraph path="plot_vaccinated.png" title="Vaccinated" />
           </Tab>
           <Tab eventKey="mobility" title="Mobility">
-            <MobilityGraph path={["retail.png", "grocery.png", "parks.png", "transit.png", "workplaces.png"]} title={["retail", "grocery", "parks", "transit", "workplaces"]}/>
+            <MobilityGraph path={["retail.png", "grocery.png", "parks.png", "transit.png", "workplaces.png", "residential.png"]} title={["retail", "grocery", "parks", "transit", "workplaces", "residential"]}/>
           </Tab>
         </Tabs>
       </div>
