@@ -130,9 +130,9 @@ function Models(props) {
   const [smape, setSmape] = useState("");
   const [mtype, setMtype] = useState("");
   const [inputmodel, setInputmodel] = useState("");
-  const models = ['Random Forest Regressor', 'GRU', 'LSTM']
-  const filenames = ['rf.csv', 'gru.csv', 'lstm.csv']
-  const mtypes = ['1 day prediction', '7 days prediction', '7 days prediction']
+  const models = ['Random Forest Regressor', 'GRU', 'LSTM', 'Multi-Offset LSTM']
+  const filenames = ['rf.csv', 'gru.csv', 'lstm.csv', 'lstm_multiple.csv']
+  const mtypes = ['1 day prediction', '7 days prediction', '7 days prediction', '7 days prediction']
 
   const disqusShortname = "covipred";
   const disqusConfig = {
