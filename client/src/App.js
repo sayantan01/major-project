@@ -15,6 +15,7 @@ import NotFound from "./components/NotFound";
 import Analytics from "./components/Analytics";
 import Models from "./components/Models";
 import Footer from "./components/Footer";
+import References from "./components/References";
 import { logoutUser } from "./actions/actionUtils";
 
 import "./App.css";
@@ -50,6 +51,7 @@ function App(props) {
               <Nav.Link href="/dashboard">Vaccine-predictor</Nav.Link>
               <Nav.Link href="/analytics">Data-analytics</Nav.Link>
               <Nav.Link href="/models">Case-predictor</Nav.Link>
+              <Nav.Link href="/references">References</Nav.Link>
               {props.token !== null && (
                 <Nav.Item>
                   <User />
@@ -70,6 +72,7 @@ function App(props) {
           <Route exact path="/prediction" component={Prediction} />
           <Route exact path="/analytics" component={Analytics} />
           <Route exact path="/models" component={Models} />
+          <Route exact path="/references" component={References} />
           <Route component={NotFound} />
         </Switch>
       </Router>
